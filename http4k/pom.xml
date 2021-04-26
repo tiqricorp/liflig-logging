@@ -15,9 +15,6 @@
 
   <properties>
     <!-- Inherits from parent. -->
-
-    <!-- Override parent. -->
-    <maven.deploy.skip>false</maven.deploy.skip>
   </properties>
 
   <dependencies>

@@ -21,9 +21,6 @@
     -->
     <kotlin.code.style>official</kotlin.code.style>
 
-    <!-- Don't deploy this parent module. -->
-    <maven.deploy.skip>true</maven.deploy.skip>
-
     <kotlin.version>1.4.32</kotlin.version>
     <kotlinx-serialization.version>1.1.0</kotlinx-serialization.version>
   </properties>
