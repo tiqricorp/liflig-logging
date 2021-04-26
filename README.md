@@ -93,8 +93,8 @@ val filters = ServerFilters
       ),
     ),
   )
-  .then(ErrorHandlerFilter(errorLogLens))
   // <-- CORS filter here
+  .then(ErrorHandlerFilter(errorLogLens))
   .then(RequestLensFailureFilter(errorResponseRenderer))
   // Rest of your filters/handlers.
 ```
