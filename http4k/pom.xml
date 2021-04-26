@@ -84,6 +84,20 @@
     </dependency>
 
     <dependency>
+      <groupId>io.mockk</groupId>
+      <artifactId>mockk</artifactId>
+      <version>1.11.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>no.liflig</groupId>
+      <artifactId>snapshot-test</artifactId>
+      <version>1.20210412.090301</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
       <groupId>io.kotest</groupId>
       <artifactId>kotest-assertions-core-jvm</artifactId>
       <version>4.4.3</version>
