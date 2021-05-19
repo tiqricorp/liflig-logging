@@ -69,4 +69,31 @@ class ErrorHandlerFilterTest {
     currentErrorLog.shouldNotBeNull()
     currentErrorLog.throwable should beInstanceOf<RuntimeException>()
   }
+
+  @Test
+  fun `catches errors such as NotImplementedError`() {
+    var errorLog: ErrorLog? = null
+
+    val errorLogLens = BiDiLens<Request, ErrorLog?>(
+      Meta(false, "dummy", ParamMeta.StringParam, "dummy"),
+      { ErrorLog(RuntimeException("dummy")) },
+      { thisErrorLog, request ->
+        errorLog = thisErrorLog
+        request
+      }
+    )
+
+    val handler = ErrorHandlerFilter(errorLogLens).then {
+      throw NotImplementedError("doh")
+    }
+
+    val response = handler(Request(Method.GET, "/dummy"))
+
+    response.status shouldBe Status.INTERNAL_SERVER_ERROR
+
+    val currentErrorLog = errorLog
+
+    currentErrorLog.shouldNotBeNull()
+    currentErrorLog.throwable should beInstanceOf<NotImplementedError>()
+  }
 }

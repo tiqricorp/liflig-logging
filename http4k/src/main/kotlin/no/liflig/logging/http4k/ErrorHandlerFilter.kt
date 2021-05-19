@@ -9,14 +9,14 @@ import org.http4k.core.with
 import org.http4k.lens.BiDiLens
 
 /**
- * Handle exceptions. Saves the exception on context so it can be used during logging.
+ * Handle exceptions and errors. Saves the throwable on context so it can be used during logging.
  */
 object ErrorHandlerFilter {
   operator fun invoke(errorLogLens: BiDiLens<Request, ErrorLog?>) = Filter { next ->
     { request ->
       try {
         next(request)
-      } catch (e: Exception) {
+      } catch (e: Throwable) {
         // RequestContext is bound to the Request object.
         request.with(errorLogLens of ErrorLog(e))
 
