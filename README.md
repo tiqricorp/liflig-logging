@@ -53,7 +53,7 @@ can be used to hold details about the principal:
 @Serializable
 data class MyPrincipalLog(
   val id: String,
-)
+) : PrincipalLog
 ```
 
 Add filters to chain:
