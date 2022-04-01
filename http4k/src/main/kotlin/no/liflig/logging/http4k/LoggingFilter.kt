@@ -92,6 +92,7 @@ object LoggingFilter {
 
       val requestBody = if (logRequestBody) request.bodyString() else null
       val responseBody = if (logResponseBody) response.bodyString() else null
+
       val logEntry = RequestResponseLog(
         timestamp = Instant.now(),
         requestId = requestIdChain.last(),
@@ -142,19 +143,16 @@ object LoggingFilter {
     return { entry ->
       val request = entry.request
       val response = entry.response
-      val throwable = entry.throwable
-      val message = "HTTP request (${response.statusCode}) (${entry.durationMs} ms): ${request.method} ${request.uri}"
-      val requestInfo = Markers.appendRaw(
-        "requestInfo",
-        json.encodeToString(RequestResponseLog.serializer(principalLogSerializer), entry)
+
+      logger.info(
+        "HTTP request (${response.statusCode}) (${entry.durationMs} ms): ${request.method} ${request.uri}",
+        Markers.appendRaw(
+          "requestInfo",
+          json.encodeToString(RequestResponseLog.serializer(principalLogSerializer), entry)
+        )
       )
 
-      if (throwable != null) {
-        logger.error(message, requestInfo)
-      } else {
-        logger.info(message, requestInfo)
-      }
-
+      val throwable = entry.throwable
       if (printStacktraceToConsole && throwable != null) {
         // Using println instead of logger to not scramble logfile.
         println("Throwable from request ${request.method} ${request.uri}:")
