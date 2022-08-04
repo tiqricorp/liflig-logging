@@ -74,7 +74,7 @@ object LoggingFilter {
     logHandler: (RequestResponseLog<T>) -> Unit,
     includeBody: Boolean = true,
     contentTypesToLog: List<ContentType> = listOf(ContentType.APPLICATION_JSON),
-    redactedHeaders: List<String> = listOf("authorization", "x-api-key"),
+    redactedHeaders: List<String> = listOf("authorization", "x-api-key")
   ) = Filter { next ->
     { request ->
       val requestIdChain = requestIdChainLens(request)
@@ -138,7 +138,7 @@ object LoggingFilter {
    */
   fun <T : PrincipalLog> createLogHandler(
     printStacktraceToConsole: Boolean,
-    principalLogSerializer: KSerializer<T>,
+    principalLogSerializer: KSerializer<T>
   ): (RequestResponseLog<T>) -> Unit {
     return { entry ->
       val request = entry.request
