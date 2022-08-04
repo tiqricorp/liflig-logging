@@ -38,12 +38,8 @@
 
   <repositories>
     <repository>
-      <id>capra-releases</id>
-      <name>Capra/Liflig Release Repository</name>
-      <url>https://mvnrepo.capraconsulting.no/content/repositories/capra-releases</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/capralifecycle/*</url>
     </repository>
   </repositories>
 
@@ -52,10 +48,6 @@
       <id>capra-releases</id>
       <url>https://mvnrepo.capraconsulting.no/content/repositories/capra-releases</url>
     </repository>
-    <snapshotRepository>
-      <id>capra-snapshots</id>
-      <url>https://mvnrepo.capraconsulting.no/content/repositories/capra-snapshots</url>
-    </snapshotRepository>
   </distributionManagement>
 
   <dependencyManagement>
@@ -80,7 +72,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>3.2.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -105,7 +97,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>3.2.0</version>
+          <version>3.3.0</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -146,7 +138,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>3.1.0</version>
         <executions>
           <execution>
             <id>enforce-maven</id>
@@ -193,7 +185,7 @@
       <plugin>
         <groupId>com.github.gantsign.maven</groupId>
         <artifactId>ktlint-maven-plugin</artifactId>
-        <version>1.12.1</version>
+        <version>1.13.1</version>
         <executions>
           <execution>
             <id>check</id>
