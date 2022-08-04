@@ -18,7 +18,7 @@ class RequestLensFailureFilterTest {
     ErrorResponseRendererWithLogging(
       BiDiLens(mockk(), mockk()) { _, req -> req },
       BiDiLens(mockk(), mockk()) { _, req -> req },
-      JsonErrorResponseRenderer(Jackson),
+      JsonErrorResponseRenderer(Jackson)
     )
   )
 
