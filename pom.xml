@@ -25,13 +25,6 @@
     <kotlinx-serialization.version>1.2.2</kotlinx-serialization.version>
   </properties>
 
-  <scm>
-    <developerConnection>scm:git:https://github.com/capralifecycle/liflig-logging.git</developerConnection>
-    <connection>scm:git:https://github.com/capralifecycle/liflig-logging.git</connection>
-    <url>https://github.com/capralifecycle/liflig-logging</url>
-    <tag>HEAD</tag>
-  </scm>
-
   <modules>
     <module>http4k</module>
   </modules>
@@ -39,14 +32,15 @@
   <repositories>
     <repository>
       <id>github</id>
-      <url>https://maven.pkg.github.com/capralifecycle/*</url>
+      <url>https://maven.pkg.github.com/tiqricorp/*</url>
     </repository>
   </repositories>
 
   <distributionManagement>
     <repository>
-      <id>capra-releases</id>
-      <url>https://mvnrepo.capraconsulting.no/content/repositories/capra-releases</url>
+      <id>github</id>
+      <name>GitHub tiqricorp Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/tiqricorp/liflig-logging</url>
     </repository>
   </distributionManagement>
 
